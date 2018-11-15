@@ -1,0 +1,31 @@
+<section class="py-2">
+    <div class="row mt-5">
+        <div class="col-md-6 text-center">
+            <h1 class="display-3 mt-3 pt-5">World of Pooh the Ebook</h1>
+            <p>Read with your kids. *This is not a real Ebook.</p>
+            {{!-- Stripe Front End Form --}}
+            <form action="/charge" method="POST">
+                <script
+                    src="https://checkout.stripe.com/checkout.js"
+                    class="stripe-button"
+                    data-key="{{stripePublishableKey}}"
+                    {{!-- amount to charge --}}
+                    data-amount="2500" 
+                    data-name="The World of Pooh"
+                    data-description="Ebook"
+                    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                    data-locale="auto">
+                </script>
+
+                {{!-- Hide default button --}}
+                <script>
+                    document.getElementsByClassName('stripe-button-el')[0].style.display = 'none';
+                </script>
+                <button type="submit" class="btn btn-outline-dark btn-lg">Purchase for $25</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <img src="/img/annie-spratt-365533-unsplash.jpg" alt="ebook" class="img-fluid">
+        </div>
+    </div>
+</section>
